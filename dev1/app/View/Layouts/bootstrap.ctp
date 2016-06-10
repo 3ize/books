@@ -5,7 +5,7 @@
 		<?php echo $title_for_layout; ?>
 	</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -18,13 +18,13 @@
 	?>
 
   	<!-- Latest compiled and minified CSS -->
-  	<link rel="stylesheet" href="//tri-library.main.jp/admin/css/test_300.css">
+  	<link rel="stylesheet" href="//tri-library.main.jp/dev1/css/test.css">
  <!-- 	<link rel="stylesheet" href="//tri-library.main.jp/dev1/css/non-responsive.css"> -->
   	
   	<!-- Latest compiled and minified JavaScript -->
   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  	<script src="//tri-library.main.jp/admin/js/test.js"></script>
-  	<script src="//tri-library.main.jp/admin/js/test2.js"></script>
+  	<script src="//tri-library.main.jp/dev1/js/test.js"></script>
+  	<script src="//tri-library.main.jp/dev1/js/test2.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

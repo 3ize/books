@@ -8,8 +8,6 @@ define("SECRET_ACCESS_KEY" , 'wYiIU1sy0/CX4z20xFwUjWL1XlTFpCU2/PSB+VZh');
 main();
 function main()
 {
-  $transBtn = false;
-
   // https://images-na.ssl-images-amazon.com/images/G/09/associates/paapi/dg/index.html?CommonRequestParameters.html
   
   $isbn = $_GET['isbn'];
@@ -81,7 +79,7 @@ function main()
 print<<<EOF
 
 
-<script type="text/javascript">
+<script type="text/javascript"> 
 <!-- 
 function check(){
 	var flag = 0;
@@ -95,7 +93,6 @@ function check(){
 		return false; // 送信を中止
 	}
 	else{
-		
 		return true; // 送信を実行
 	}
 }
@@ -105,7 +102,7 @@ function check(){
 <form method="GET" action="" name="ISBN" onSubmit="return check()">
 <p>
 <input type="text" placeholder="ISBNコードを入力して下さい" name="isbn" value="$isbn" size="40　"maxlength="13">
-<input type="submit" value="送信" >
+<input type="submit" value="送信">
 </p>
 </form>
 
@@ -122,7 +119,6 @@ function check(){
 
 EOF;
     if(!empty($_GET)) {
-	if(!empty($title)) {
 print<<<EOF
 <form action="regist.php" method="post">
   <input type="hidden" name="isbn" value="$isbn">
@@ -136,14 +132,11 @@ print<<<EOF
    width:100px;">
 </form>
 EOF;
-         } else {
-print<<<EOF
-<script>	   
-	   alert("ISBNに誤りがあるか一時的にデータが取得できませんでした。");
-</script>
-EOF;
-         }
-     }
+
+
+
+    }
+
 }
 
 class Amazon
@@ -199,11 +192,7 @@ function urlencode_rfc3986($str)
   return str_replace('%7E', '~', rawurlencode($str));
 }
 
-function click() 
-{
-	die(var_dump($transBtn));
-	$transBtn = true;
-}
+
 
 ?>
 

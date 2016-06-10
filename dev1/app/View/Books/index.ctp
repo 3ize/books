@@ -10,6 +10,7 @@
 
 		
 		<div class="col-md-9">
+			<form method="POST" action=""> 
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<thead>
 					<tr>
@@ -40,20 +41,30 @@
 					!empty($book['Book']['image_url']) &&
 					!empty($book['Book']['detail_page_url'])) { 
 				?>
-					
 					<tr>
 						<td nowrap>
-<?php echo $this->Html->image($book['Book']['image_url'],array('url'=>$book['Book']['detail_page_url'],'width'=>'23','height'=>'30'));?>
+<?php echo $this->Html->image($book['Book']['image_url'],array('url'=>$book['Book']['detail_page_url'],'width'=>'46','height'=>'64'));?>
 &nbsp;</td>
 	<!--					<td nowrap><?php echo h($book['Book']['id']); ?>&nbsp;</td> -->
-	<!--					<td nowrap><?php echo h($book['Book']['isbn']); ?>&nbsp;</td> -->
-						<td nowrap><?php echo h($book['Book']['title']); ?>&nbsp;</td>
+						<td nowrap><?php echo $this->Html->link($book['Book']['title'],$book['Book']['detail_page_url']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($book['Book']['author']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($book['Book']['publisher']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($book['Book']['publication_date']); ?>&nbsp;</td>
 <!--						<td nowrap><?php echo h($book['Book']['image_url']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($book['Book']['detail_page_url']); ?>&nbsp;</td> -->
-						<td nowrap><?php echo h($book['Book']['stock_num']); ?>&nbsp;</td>
+						<td>
+						<div name="book[]" value="">
+						<?php
+							print ('<select name="'.$book['Book']['isbn'].'[]">'); 
+							$bookNum = $book['Book']['stock_num'] - $book['Book']['lend_num'];
+							for($i = $bookNum; $i >= 0; $i--) {
+								print('<option value="'. $i .'">'. $i .'</option>');
+							}
+							print ('</select>');
+						?>
+						</div>
+						</td>
+
 	<!--					<td nowrap><?php echo h($book['Book']['lend_num']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($book['Book']['other_num']); ?>&nbsp;</td> -->
 						<td nowrap><?php echo $this->Time->format($book['Book']['created'], '%Y/%m/%d %H:%M'); ?>&nbsp;</td>
@@ -67,6 +78,8 @@
 				} ?>
 				</tbody>
 			</table>
+			<input type="submit" value="更新">
+			</form>
 			<p>
 				<small><?php echo $this->Paginator->counter(array('format' => __('ページ {:page} / {:pages}, 全 {:count} 件')));?></small>
 			</p>
@@ -93,6 +106,21 @@
 
 
 </div><!-- end containing of content -->
+
+<?php
+  foreach($_POST as $data )
+  {
+	var_dump($data);	   
+  }
+
+   function updateBookNum() {
+
+  	die(var_dump($_GET));
+
+   	/*$this->save('books',
+		array(*/
+  }			
+?>
 
 
 <script>

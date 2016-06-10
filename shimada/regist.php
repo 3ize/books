@@ -3,20 +3,10 @@ print_r("登録が完了しました");
 //echo date('Y-m-d H:i:s');
 
 // 接続定義
-define('DSN', 'host=localhost');
+define('DSN', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASSWORD', 'root');
-define('DB_NAME', 'mysql:dbname=LAA0696374-trilibrary1;');
-
-//DBに接続
-try{
-   $db = new PDO(DB_NAME.DSN,DB_USER,DB_PASSWORD);
-} catch(PDOException $e) {
-   echo 'Connection failed: '. $e->getMessage();
-}
-
-
-
+define('DB_NAME', 'LAA0696374-trilibrary1');
 
 $link = mysql_connect(DSN, DB_USER, DB_PASSWORD);
 if (!$link) {

@@ -9,6 +9,24 @@
 
 	<div class="row">
 
+		<div class="col-md-3">
+			<div class="actions">
+				<div class="panel panel-default">
+					<div class="panel-heading"><?php echo __('Actions'); ?></div>
+						<div class="panel-body">
+							<ul class="nav nav-pills nav-stacked">
+									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Edit User'), array('action' => 'edit', $user['User']['id']), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete User'), array('action' => 'delete', $user['User']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $user['User']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Users'), array('action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New User'), array('action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Lends'), array('controller' => 'lends', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Lend'), array('controller' => 'lends', 'action' => 'add'), array('escape' => false)); ?> </li>
+							</ul>
+						</div><!-- end body -->
+				</div><!-- end panel -->
+			</div><!-- end actions -->
+		</div><!-- end col md 3 -->
+
 		<div class="col-md-9">			
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<tbody>
@@ -91,7 +109,7 @@
 		<th><?php echo __('Return Date'); ?></th>
 		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
-
+		<th class="actions"></th>
 	</tr>
 	<thead>
 	<tbody>
@@ -105,12 +123,19 @@
 			<td><?php echo $lend['return_date']; ?></td>
 			<td><?php echo $lend['created']; ?></td>
 			<td><?php echo $lend['modified']; ?></td>
-
+			<td class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'lends', 'action' => 'view', $lend['id']), array('escape' => false)); ?>
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'lends', 'action' => 'edit', $lend['id']), array('escape' => false)); ?>
+				<?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>'), array('controller' => 'lends', 'action' => 'delete', $lend['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $lend['id'])); ?>
+			</td>
 		</tr>
 	<?php endforeach; ?>
 	</tbody>
 	</table>
 <?php endif; ?>
 
+	<div class="actions">
+		<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Lend'), array('controller' => 'lends', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+	</div>
 	</div><!-- end col md 12 -->
 </div>
